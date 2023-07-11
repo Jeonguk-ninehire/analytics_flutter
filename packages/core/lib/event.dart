@@ -615,7 +615,9 @@ UserTraits mergeUserTraits(UserTraits a, UserTraits b) {
 }
 
 GroupTraits mergeGroupTraits(GroupTraits a, GroupTraits b) {
-  final groupTraits = GroupTraits(
+  final custom = a.custom;
+  custom.addAll(b.custom);
+  return GroupTraits(
       address: a.address != null && b.address != null
           ? mergeAddress(a.address as Address, b.address as Address)
           : a.address ?? b.address,
@@ -630,8 +632,7 @@ GroupTraits mergeGroupTraits(GroupTraits a, GroupTraits b) {
       phone: a.phone ?? b.phone,
       plan: a.plan ?? b.plan,
       website: a.website ?? b.website);
-  groupTraits.custom = a.custom.addAll(b.custom);
-  return groupTraits;
+  ..custom = custom;
 }
 
 Company mergeCompany(Company a, Company b) {
