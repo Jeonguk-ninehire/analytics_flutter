@@ -631,7 +631,7 @@ GroupTraits mergeGroupTraits(GroupTraits a, GroupTraits b) {
       name: a.name ?? b.name,
       phone: a.phone ?? b.phone,
       plan: a.plan ?? b.plan,
-      website: a.website ?? b.website);
+      website: a.website ?? b.website)
   ..custom = custom;
 }
 
